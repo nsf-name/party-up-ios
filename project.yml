@@ -33,4 +33,3 @@ targets:
         #DEVELOPMENT_TEAM: TODO FILL THIS IN
         CODE_SIGN_STYLE: Automatic
     dependencies: []
-
