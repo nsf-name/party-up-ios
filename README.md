@@ -1,5 +1,5 @@
 # Party UP! (iOS Edition)
-Simple iOS port of (Party UP!)[https://github.com/9001/party-up], a copyparty upload client.
+Simple iOS port of [Party UP!](https://github.com/9001/party-up), a copyparty upload client.
 
 Highly experimental software. v1.0 is reached when uploading (`up2k` style ideally) works, which would be feature-parity with the Android app. The goal is that whatever exists in the Android version exists in this version too (wherever that's possible).
 
