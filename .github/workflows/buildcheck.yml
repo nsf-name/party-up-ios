@@ -16,8 +16,4 @@ jobs:
         run: xcodegen generate
 
       - name: build check 
-        run: |
-          xcodebuild \
-            -project Party\ UP\!.xcodeproj \
-            -scheme Party\ UP\! \
-            -configuration Release
+        run: make release
