@@ -1,0 +1,36 @@
+name: "Party UP!"
+options:
+  bundleIdPrefix: com.nsf-name
+  deploymentTarget:
+    iOS: "26.5"
+  xcodeVersion: "26.5"
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+
+targets:
+  "Party UP!":
+    type: application
+    platform: iOS
+    deploymentTarget: "26.5"
+    configs:
+      Debug: debug
+      Release: release
+    sources:
+      - path: PartyUP.icon
+      - path: Sources
+        excludes:
+          - "**/*.md"
+    settings:
+      base:
+        SWIFT_VERSION: "6.0"
+        SWIFT_STRICT_CONCURRENCY: complete
+        ENABLE_HARDENED_RUNTIME: YES
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PRODUCT_VERSION: "1"
+        INFOPLIST_FILE: Sources/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.nsf-name.PartyUP
+        ASSETCATALOG_COMPILER_APPICON_NAME: PartyUP
+        #DEVELOPMENT_TEAM: TODO FILL THIS IN
+        CODE_SIGN_STYLE: Automatic
+    dependencies: []
+
