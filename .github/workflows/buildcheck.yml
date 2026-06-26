@@ -16,4 +16,4 @@ jobs:
         run: xcodegen generate
 
       - name: build check 
-        run: make release
+        run: make debug
