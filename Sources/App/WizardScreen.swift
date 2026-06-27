@@ -12,6 +12,8 @@ struct WizardScreen: View {
     }
     
     func partyAdvice() -> (partyState, String) {
+        // TODO: maybe ping the server to see if it's reachable?
+        // a bit more expensive than NetPath so we might want to make that opt-in.
         if !net.online {
             return (.bad, "No connection")
         }
@@ -71,12 +73,12 @@ struct WizardScreen: View {
                     Divider()
                     Group {
                         switch advice.0 {
-                            case .good:
-                                Text("**Ready to party 🎉**")
-                            case .bad:
-                                Text("**Unable to party ‼️**\n*\(advice.1)*")
-                            case .concerns:
-                                Text("**Ready to party 🎉**\n*(Note: \(advice.1))*")
+                        case .good:
+                        Text("**Ready to party 🎉**")
+                        case .bad:
+                        Text("**Unable to party ‼️**\n*\(advice.1)*")
+                        case .concerns:
+                        Text("**Ready to party 🎉**\n*(Note: \(advice.1))*")
                         }
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

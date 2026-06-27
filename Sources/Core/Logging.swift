@@ -21,15 +21,15 @@ let netLogger = Logger.init(
 
 extension OSLogEntryLog.Level {
   fileprivate var description: String {
-    switch self {
-        case .undefined: "Undefined"
-        case .debug: "Debug"
-        case .info: "Info"
-        case .notice: "Notice"
-        case .error: "Error [!!!]"
-        case .fault: "Fault"
-        @unknown default: "Default"
-    }
+      switch self {
+      case .undefined: "Undefined"
+      case .debug: "Debug"
+      case .info: "Info"
+      case .notice: "Notice"
+      case .error: "Error [!!!]"
+      case .fault: "Fault"
+      @unknown default: "Default"
+      }
   }
 }
 
@@ -57,7 +57,7 @@ extension Logger {
         logs.append("\(entry.date): \(entry.composedMessage)\n")
       }
     }
-    // should never occur!
+    // occurs when we aren't running with lldb
     if logs.isEmpty { logs = ["Error: Nothing found!"] }
     return logs
   }

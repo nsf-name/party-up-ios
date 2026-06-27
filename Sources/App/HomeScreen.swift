@@ -3,6 +3,8 @@ import SwiftUI
 
 struct HomeScreen: View {
     @State private var settings = AppSettings.shared
+    @State private var isShowing: Bool = false
+    @State private var sendPayload: SendPayload?
     
     var body: some View {
         NavigationStack {
@@ -22,9 +24,22 @@ struct HomeScreen: View {
                     Fun fact: You can run the copyparty server itself on any device where Python is available -- and thanks to [aShell](https://github.com/holzschu/a-shell), that includes iOS devices :>
                     """
                     ).padding([.leading,.trailing],16)
-                    NavigationLink(destination: SendScreen()) {
-                        Label("Send Files", systemImage: "folder")
-                    }.buttonStyle(.glassProminent)
+                    Button {
+                        isShowing.toggle()
+                    } label: {
+                        Label("Select Files", systemImage: "folder")
+                    }
+                    .fileImporter(isPresented: $isShowing, allowedContentTypes: [.item],
+                                   allowsMultipleSelection: true, onCompletion: { result in
+                        switch result {
+                        case .success(let urls): sendPayload = .success(urls)
+                        case .failure(let error): sendPayload = .failure(error.localizedDescription)
+                        }
+                    })
+                    .buttonStyle(.glassProminent)
+                    .navigationDestination(item: $sendPayload) { payload in
+                        SendScreen(payload: payload)
+                    }
                     Spacer()
                 }
             }
