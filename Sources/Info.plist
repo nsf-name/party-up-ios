@@ -12,6 +12,10 @@
     <string>$(MARKETING_VERSION)</string>
     <key>CFBundleVersion</key>
     <string>$(CURRENT_PRODUCT_VERSION)</string>
+    <key>CFBundleName</key>
+    <string>Party UP!</string>
+    <key>CFBundleDisplayName</key>
+    <string>Party UP!</string>
     <key>UILaunchScreen</key>
     <dict/>
 </dict>
